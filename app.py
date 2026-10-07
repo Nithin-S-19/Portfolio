@@ -1,6 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
+
+
+@app.get("/")
+def home():
+    """Render the portfolio landing page."""
+    return render_template("index.html")
 
 # This sample data is stored in memory and resets whenever the server restarts.
 students = [

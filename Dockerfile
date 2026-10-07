@@ -11,8 +11,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
-# Copy the Flask application into the image.
+# Copy the Flask application and template/static assets into the image.
 COPY app.py .
+COPY templates ./templates
+COPY static ./static
 
 # Document the port used by the Flask API.
 EXPOSE 5000
